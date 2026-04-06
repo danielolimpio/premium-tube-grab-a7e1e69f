@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   Home, Video, Smartphone, Music, FolderOpen, Users,
   Download, Settings, Play, ChevronLeft, ChevronRight,
@@ -7,18 +8,18 @@ import {
 } from "lucide-react";
 
 const menuItems = [
-  { icon: Home, label: "Início", active: true },
-  { icon: Video, label: "Vídeos" },
-  { icon: Smartphone, label: "Shorts", badge: "NEW" },
-  { icon: Music, label: "Áudio/MP3" },
-  { icon: FolderOpen, label: "Playlists" },
-  { icon: Users, label: "Canais" },
-  { icon: Download, label: "Downloads", count: 47 },
-  { icon: Settings, label: "Configurações" },
+  { icon: Home, label: "Início", path: "/" },
+  { icon: Video, label: "Vídeos", path: "/videos" },
+  { icon: Smartphone, label: "Shorts", path: "/shorts", badge: "NEW" },
+  { icon: Music, label: "Áudio/MP3", path: "/audio" },
+  { icon: FolderOpen, label: "Playlists", path: "/playlist" },
+  { icon: Users, label: "Canais", path: "/canais" },
 ];
 
 export default function AppSidebar() {
   const [collapsed, setCollapsed] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <motion.aside
@@ -28,11 +29,14 @@ export default function AppSidebar() {
     >
       {/* Logo */}
       <div className="flex items-center gap-3 px-5 py-5 border-b border-border/30">
-        <div className="relative flex-shrink-0 w-10 h-10 rounded-xl gradient-red flex items-center justify-center shadow-button">
+        <div
+          className="relative flex-shrink-0 w-10 h-10 rounded-xl gradient-red flex items-center justify-center shadow-button cursor-pointer"
+          onClick={() => navigate("/")}
+        >
           <Play className="w-5 h-5 fill-current text-primary-foreground" />
         </div>
         {!collapsed && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="overflow-hidden">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="overflow-hidden cursor-pointer" onClick={() => navigate("/")}>
             <h1 className="text-lg font-bold text-foreground tracking-tight whitespace-nowrap">TubeSave Pro</h1>
             <p className="text-xs text-muted-foreground whitespace-nowrap">Download em 4K/8K</p>
           </motion.div>
@@ -47,32 +51,31 @@ export default function AppSidebar() {
 
       {/* Navigation */}
       <nav className="flex-1 py-3 px-3 space-y-1 overflow-y-auto">
-        {menuItems.map((item) => (
-          <motion.button
-            key={item.label}
-            whileHover={{ x: collapsed ? 0 : 4 }}
-            className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-premium group relative ${
-              item.active
-                ? "gradient-red text-primary-foreground shadow-button"
-                : "text-muted-foreground hover:text-foreground hover:bg-secondary/80"
-            }`}
-          >
-            <item.icon className="w-5 h-5 flex-shrink-0" />
-            {!collapsed && (
-              <span className="text-sm font-medium whitespace-nowrap">{item.label}</span>
-            )}
-            {!collapsed && item.badge && (
-              <span className="ml-auto px-2 py-0.5 text-[10px] font-bold rounded-full gradient-red text-primary-foreground">
-                {item.badge}
-              </span>
-            )}
-            {!collapsed && item.count && (
-              <span className="ml-auto px-2 py-0.5 text-xs font-semibold rounded-full bg-secondary text-foreground">
-                {item.count}
-              </span>
-            )}
-          </motion.button>
-        ))}
+        {menuItems.map((item) => {
+          const isActive = location.pathname === item.path;
+          return (
+            <motion.button
+              key={item.label}
+              whileHover={{ x: collapsed ? 0 : 4 }}
+              onClick={() => navigate(item.path)}
+              className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-premium group relative ${
+                isActive
+                  ? "gradient-red text-primary-foreground shadow-button"
+                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/80"
+              }`}
+            >
+              <item.icon className="w-5 h-5 flex-shrink-0" />
+              {!collapsed && (
+                <span className="text-sm font-medium whitespace-nowrap">{item.label}</span>
+              )}
+              {!collapsed && item.badge && (
+                <span className="ml-auto px-2 py-0.5 text-[10px] font-bold rounded-full gradient-red text-primary-foreground">
+                  {item.badge}
+                </span>
+              )}
+            </motion.button>
+          );
+        })}
       </nav>
 
       {/* Bottom */}
@@ -86,7 +89,7 @@ export default function AppSidebar() {
             <div className="w-full h-1.5 bg-secondary rounded-full overflow-hidden">
               <div className="h-full gradient-red rounded-full" style={{ width: "72%" }} />
             </div>
-            <p className="text-[11px] text-muted-foreground mt-1.5">47 downloads hoje</p>
+            <p className="text-[11px] text-muted-foreground mt-1.5">Premium ilimitado</p>
           </div>
           <p className="text-[10px] text-muted-foreground text-center">v2.0.1 Premium</p>
         </motion.div>
