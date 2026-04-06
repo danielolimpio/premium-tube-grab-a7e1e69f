@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Download, FolderOpen, ListVideo, Play, Loader2, CheckCircle2 } from "lucide-react";
+import Disclaimer from "@/components/Disclaimer";
 import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
 import { fetchVideoInfo, type VideoResult } from "@/lib/youtube";
