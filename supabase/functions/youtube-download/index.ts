@@ -69,18 +69,18 @@ Deno.serve(async (req) => {
       thumbnail: infoData.thumbnails?.[infoData.thumbnails.length - 1]?.url || '',
       views: infoData.viewCount || '0',
       formats: {
-        videos: (infoData.videos?.items || []).map((v: any) => ({
+        videos: (infoData.videos?.items || []).filter((v: any) => v.url).map((v: any) => ({
           quality: v.quality || v.qualityLabel || 'Unknown',
           url: v.url,
           mimeType: v.mimeType || 'video/mp4',
-          size: v.size || 'Unknown',
+          size: typeof v.size === 'number' ? formatBytes(v.size) : (v.size || 'Unknown'),
           hasAudio: v.hasAudio !== false,
         })),
-        audios: (infoData.audios?.items || []).map((a: any) => ({
-          quality: a.quality || a.bitrate || 'Unknown',
+        audios: (infoData.audios?.items || []).filter((a: any) => a.url).map((a: any) => ({
+          quality: a.bitrate ? `${Math.round(a.bitrate / 1000)}kbps` : (a.quality || 'Unknown'),
           url: a.url,
           mimeType: a.mimeType || 'audio/mp4',
-          size: a.size || 'Unknown',
+          size: typeof a.size === 'number' ? formatBytes(a.size) : (a.size || 'Unknown'),
         })),
       },
     };
