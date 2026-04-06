@@ -9,6 +9,7 @@ import Shorts from "./pages/Shorts.tsx";
 import Audio from "./pages/Audio.tsx";
 import Playlist from "./pages/Playlist.tsx";
 import Canais from "./pages/Canais.tsx";
+import UsoResponsavel from "./pages/UsoResponsavel.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/audio" element={<Audio />} />
           <Route path="/playlist" element={<Playlist />} />
           <Route path="/canais" element={<Canais />} />
+          <Route path="/uso-responsavel" element={<UsoResponsavel />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

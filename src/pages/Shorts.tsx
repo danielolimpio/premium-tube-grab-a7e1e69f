@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Download, Smartphone, Play, Loader2, Zap, Clock, Sparkles } from "lucide-react";
+import Disclaimer from "@/components/Disclaimer";
 import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
 import { fetchVideoInfo, type VideoResult } from "@/lib/youtube";
@@ -131,6 +132,7 @@ export default function Shorts() {
                   </button>
                 </div>
               </motion.div>
+              <Disclaimer />
             </div>
           </section>
 

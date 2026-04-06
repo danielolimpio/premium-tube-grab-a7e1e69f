@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Download, Clipboard, Music, Smartphone, FolderOpen, Play, Loader2 } from "lucide-react";
 import { fetchVideoInfo, type VideoResult } from "@/lib/youtube";
 import { toast } from "@/hooks/use-toast";
+import Disclaimer from "@/components/Disclaimer";
 
 interface HeroSectionProps {
   onResult: (result: VideoResult) => void;
@@ -167,6 +168,8 @@ export default function HeroSection({ onResult, isLoading, setIsLoading }: HeroS
             </button>
           ))}
         </motion.div>
+
+        <Disclaimer />
       </div>
     </section>
   );

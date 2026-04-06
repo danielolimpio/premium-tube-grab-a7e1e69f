@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Download, Users, Tv2, Play, Loader2, Star, TrendingUp, UserCheck } from "lucide-react";
+import Disclaimer from "@/components/Disclaimer";
 import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
 import { fetchVideoInfo, type VideoResult } from "@/lib/youtube";
@@ -129,6 +130,7 @@ export default function Canais() {
                   </button>
                 </div>
               </motion.div>
+              <Disclaimer />
             </div>
           </section>
 
