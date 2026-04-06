@@ -171,6 +171,8 @@ export default function HeroSection({ onResult, isLoading, setIsLoading }: HeroS
             </button>
           ))}
         </motion.div>
+
+        <Disclaimer />
       </div>
     </section>
   );

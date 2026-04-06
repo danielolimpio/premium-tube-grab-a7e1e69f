@@ -135,6 +135,7 @@ export default function Audio() {
                   </button>
                 </div>
               </motion.div>
+              <Disclaimer />
             </div>
           </section>
 

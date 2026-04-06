@@ -130,6 +130,7 @@ export default function Canais() {
                   </button>
                 </div>
               </motion.div>
+              <Disclaimer />
             </div>
           </section>
 

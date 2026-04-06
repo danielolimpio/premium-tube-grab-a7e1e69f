@@ -132,6 +132,7 @@ export default function Shorts() {
                   </button>
                 </div>
               </motion.div>
+              <Disclaimer />
             </div>
           </section>
 

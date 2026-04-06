@@ -126,6 +126,7 @@ export default function Playlist() {
                   </button>
                 </div>
               </motion.div>
+              <Disclaimer />
             </div>
           </section>
 

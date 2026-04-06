@@ -126,6 +126,7 @@ export default function Videos() {
                   </button>
                 </div>
               </motion.div>
+              <Disclaimer />
             </div>
           </section>
 
