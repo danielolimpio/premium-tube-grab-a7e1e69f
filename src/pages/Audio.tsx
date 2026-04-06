@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Download, Music, Headphones, Volume2, Loader2, Disc3 } from "lucide-react";
+import Disclaimer from "@/components/Disclaimer";
 import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
 import { fetchVideoInfo, type VideoResult } from "@/lib/youtube";
