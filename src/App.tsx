@@ -27,6 +27,7 @@ const App = () => (
           <Route path="/audio" element={<Audio />} />
           <Route path="/playlist" element={<Playlist />} />
           <Route path="/canais" element={<Canais />} />
+          <Route path="/uso-responsavel" element={<UsoResponsavel />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
