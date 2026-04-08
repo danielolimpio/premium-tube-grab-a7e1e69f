@@ -4,8 +4,9 @@ import { useNavigate, useLocation } from "react-router-dom";
 import {
   Home, Video, Smartphone, Music, FolderOpen, Users,
   Download, Settings, Play, ChevronLeft, ChevronRight,
-  Sparkles
+  Sparkles, History
 } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const menuItems = [
   { icon: Home, label: "Início", path: "/" },
