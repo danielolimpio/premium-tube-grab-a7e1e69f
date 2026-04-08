@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Download, Play, Clock, Eye, Music, Video, Loader2 } from "lucide-react";
 import { type VideoResult, formatDuration, formatViews, downloadFile } from "@/lib/youtube";
 import { toast } from "@/hooks/use-toast";
+import { addToDownloadHistory } from "@/pages/Downloads";
 
 interface VideoResultsProps {
   result: VideoResult | null;
@@ -30,6 +31,14 @@ export default function VideoResults({ result }: VideoResultsProps) {
     setDownloadingUrl(url);
     try {
       downloadFile(url, filename);
+      addToDownloadHistory({
+        title: result.title || "Vídeo",
+        channel: result.channel || "Desconhecido",
+        thumbnail: result.thumbnail || "",
+        quality,
+        type: isAudio ? "audio" : "video",
+        videoId: result.videoId || "",
+      });
       toast({ title: "Download iniciado!", description: `${quality} - ${filename}` });
     } catch {
       toast({ title: "Erro", description: "Falha ao iniciar o download", variant: "destructive" });
