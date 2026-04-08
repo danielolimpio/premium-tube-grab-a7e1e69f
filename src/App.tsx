@@ -11,6 +11,12 @@ import Playlist from "./pages/Playlist.tsx";
 import Canais from "./pages/Canais.tsx";
 import Downloads from "./pages/Downloads.tsx";
 import UsoResponsavel from "./pages/UsoResponsavel.tsx";
+import Privacidade from "./pages/Privacidade.tsx";
+import Termos from "./pages/Termos.tsx";
+import Cookies from "./pages/Cookies.tsx";
+import DMCA from "./pages/DMCA.tsx";
+import Contato from "./pages/Contato.tsx";
+import Sobre from "./pages/Sobre.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -30,6 +36,12 @@ const App = () => (
           <Route path="/canais" element={<Canais />} />
           <Route path="/downloads" element={<Downloads />} />
           <Route path="/uso-responsavel" element={<UsoResponsavel />} />
+          <Route path="/privacidade" element={<Privacidade />} />
+          <Route path="/termos" element={<Termos />} />
+          <Route path="/cookies" element={<Cookies />} />
+          <Route path="/dmca" element={<DMCA />} />
+          <Route path="/contato" element={<Contato />} />
+          <Route path="/sobre" element={<Sobre />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

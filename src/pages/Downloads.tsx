@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { History, Trash2, ExternalLink, Download, Clock, Video, Music, Search, X } from "lucide-react";
 import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
+import AppFooter from "@/components/AppFooter";
 import Disclaimer from "@/components/Disclaimer";
 
 export interface DownloadHistoryItem {
@@ -205,8 +206,7 @@ export default function Downloads() {
               <Disclaimer />
             </div>
           </section>
-        </main>
-      </div>
+          <AppFooter />
     </div>
   );
 }

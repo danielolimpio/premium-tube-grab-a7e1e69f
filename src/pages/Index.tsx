@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
+import AppFooter from "@/components/AppFooter";
 import HeroSection from "@/components/HeroSection";
 import FeaturesGrid from "@/components/FeaturesGrid";
 import VideoResults from "@/components/VideoResults";
@@ -82,11 +83,7 @@ const Index = () => {
             </>
           )}
 
-          <footer className="py-8 px-4 border-t border-border/30 text-center">
-            <p className="text-xs text-muted-foreground">
-              © 2024 baixarvideoyoutube.com — Todos os direitos reservados.
-            </p>
-          </footer>
+          <AppFooter />
         </main>
       </div>
     </div>

@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
+import AppFooter from "@/components/AppFooter";
 
 const fadeIn = {
   initial: { opacity: 0, y: 16 },
@@ -558,9 +559,7 @@ export default function UsoResponsavel() {
             </motion.div>
           </div>
 
-          <footer className="py-8 px-4 border-t border-border/30 text-center">
-            <p className="text-xs text-muted-foreground">© 2024 baixarvideoyoutube.com — Todos os direitos reservados.</p>
-          </footer>
+          <AppFooter />
         </main>
       </div>
     </div>
