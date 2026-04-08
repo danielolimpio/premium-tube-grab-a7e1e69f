@@ -9,6 +9,7 @@ import Shorts from "./pages/Shorts.tsx";
 import Audio from "./pages/Audio.tsx";
 import Playlist from "./pages/Playlist.tsx";
 import Canais from "./pages/Canais.tsx";
+import Downloads from "./pages/Downloads.tsx";
 import UsoResponsavel from "./pages/UsoResponsavel.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
