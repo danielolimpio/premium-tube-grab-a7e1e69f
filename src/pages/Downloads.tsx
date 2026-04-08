@@ -207,6 +207,8 @@ export default function Downloads() {
             </div>
           </section>
           <AppFooter />
+        </main>
+      </div>
     </div>
   );
 }
