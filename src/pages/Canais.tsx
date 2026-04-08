@@ -4,6 +4,7 @@ import { Download, Users, Tv2, Play, Loader2, Star, TrendingUp, UserCheck } from
 import Disclaimer from "@/components/Disclaimer";
 import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
+import AppFooter from "@/components/AppFooter";
 import { fetchVideoInfo, type VideoResult } from "@/lib/youtube";
 import VideoResults from "@/components/VideoResults";
 import { toast } from "@/hooks/use-toast";
@@ -148,9 +149,7 @@ export default function Canais() {
             </section>
           )}
 
-          <footer className="py-8 px-4 border-t border-border/30 text-center">
-            <p className="text-xs text-muted-foreground">© 2024 baixarvideoyoutube.com — Todos os direitos reservados.</p>
-          </footer>
+          <AppFooter />
         </main>
       </div>
     </div>
