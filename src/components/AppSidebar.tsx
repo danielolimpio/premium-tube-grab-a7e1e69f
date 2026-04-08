@@ -15,6 +15,7 @@ const menuItems = [
   { icon: Music, label: "Áudio/MP3", path: "/audio" },
   { icon: FolderOpen, label: "Playlists", path: "/playlist" },
   { icon: Users, label: "Canais", path: "/canais" },
+  { icon: History, label: "Downloads", path: "/downloads" },
 ];
 
 export default function AppSidebar() {
@@ -31,15 +32,15 @@ export default function AppSidebar() {
       {/* Logo */}
       <div className="flex items-center gap-3 px-5 py-5 border-b border-border/30">
         <div
-          className="relative flex-shrink-0 w-10 h-10 rounded-xl gradient-red flex items-center justify-center shadow-button cursor-pointer"
+          className="relative flex-shrink-0 w-10 h-10 rounded-xl overflow-hidden cursor-pointer shadow-button"
           onClick={() => navigate("/")}
         >
-          <Play className="w-5 h-5 fill-current text-primary-foreground" />
+          <img src={logo} alt="Baixar Vídeo YouTube" className="w-full h-full object-cover" />
         </div>
         {!collapsed && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="overflow-hidden cursor-pointer" onClick={() => navigate("/")}>
-            <h1 className="text-lg font-bold text-foreground tracking-tight whitespace-nowrap">TubeSave Pro</h1>
-            <p className="text-xs text-muted-foreground whitespace-nowrap">Download em 4K/8K</p>
+            <h1 className="text-lg font-bold text-foreground tracking-tight whitespace-nowrap">Baixar Vídeo</h1>
+            <p className="text-xs text-muted-foreground whitespace-nowrap">YouTube Download 4K/8K</p>
           </motion.div>
         )}
         <button
@@ -84,15 +85,15 @@ export default function AppSidebar() {
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="p-4 border-t border-border/30 space-y-3">
           <div className="glass-card rounded-xl p-3">
             <div className="flex items-center gap-2 mb-2">
-              <Sparkles className="w-4 h-4 text-yellow-500" />
-              <span className="text-xs font-semibold text-foreground">Pro Version</span>
+              <Download className="w-4 h-4 text-green-500" />
+              <span className="text-xs font-semibold text-foreground">100% Grátis</span>
             </div>
             <div className="w-full h-1.5 bg-secondary rounded-full overflow-hidden">
-              <div className="h-full gradient-red rounded-full" style={{ width: "72%" }} />
+              <div className="h-full bg-green-500 rounded-full" style={{ width: "100%" }} />
             </div>
-            <p className="text-[11px] text-muted-foreground mt-1.5">Premium ilimitado</p>
+            <p className="text-[11px] text-muted-foreground mt-1.5">Download Ilimitado</p>
           </div>
-          <p className="text-[10px] text-muted-foreground text-center">v2.0.1 Premium</p>
+          <p className="text-[10px] text-muted-foreground text-center">v2.0.1 Grátis</p>
         </motion.div>
       )}
     </motion.aside>
