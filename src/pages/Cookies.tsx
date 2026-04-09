@@ -6,6 +6,7 @@ import {
 import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
 import AppFooter from "@/components/AppFooter";
+import SEOHead from "@/components/SEOHead";
 
 const fadeIn = {
   initial: { opacity: 0, y: 16 },
@@ -31,6 +32,14 @@ function Section({ icon: Icon, title, children }: { icon: React.ElementType; tit
 export default function Cookies() {
   return (
     <div className="flex min-h-screen bg-background">
+      <SEOHead
+        title="Política de Cookies - Baixar Vídeo YouTube"
+        description="Saiba como utilizamos cookies e tecnologias similares. Conheça os tipos de cookies, como gerenciá-los e seus direitos."
+        breadcrumbs={[
+          { name: "Início", url: "https://baixarvideoyoutube.com/" },
+          { name: "Cookies", url: "https://baixarvideoyoutube.com/cookies" },
+        ]}
+      />
       <AppSidebar />
       <div className="flex-1 flex flex-col min-w-0">
         <AppHeader />

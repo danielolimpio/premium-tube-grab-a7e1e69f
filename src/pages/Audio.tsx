@@ -5,6 +5,7 @@ import Disclaimer from "@/components/Disclaimer";
 import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
 import AppFooter from "@/components/AppFooter";
+import SEOHead from "@/components/SEOHead";
 import { fetchVideoInfo, type VideoResult } from "@/lib/youtube";
 import VideoResults from "@/components/VideoResults";
 import { toast } from "@/hooks/use-toast";
@@ -45,6 +46,14 @@ export default function Audio() {
 
   return (
     <div className="flex min-h-screen bg-background">
+      <SEOHead
+        title="Extrair Áudio MP3 do YouTube - Converter Grátis 320kbps"
+        description="Converta vídeos do YouTube em MP3 de alta qualidade até 320kbps. Extração de áudio rápida, segura e 100% gratuita."
+        breadcrumbs={[
+          { name: "Início", url: "https://baixarvideoyoutube.com/" },
+          { name: "Áudio/MP3", url: "https://baixarvideoyoutube.com/audio" },
+        ]}
+      />
       <AppSidebar />
       <div className="flex-1 flex flex-col min-w-0">
         <AppHeader />

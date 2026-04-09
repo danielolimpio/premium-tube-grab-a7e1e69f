@@ -6,6 +6,7 @@ import {
 import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
 import AppFooter from "@/components/AppFooter";
+import SEOHead from "@/components/SEOHead";
 
 const fadeIn = {
   initial: { opacity: 0, y: 16 },
@@ -31,6 +32,14 @@ function Section({ icon: Icon, title, children, accent = false }: { icon: React.
 export default function DMCA() {
   return (
     <div className="flex min-h-screen bg-background">
+      <SEOHead
+        title="Política DMCA - Baixar Vídeo YouTube"
+        description="Política de notificação e remoção DMCA. Saiba como reportar violações de direitos autorais e nossos procedimentos."
+        breadcrumbs={[
+          { name: "Início", url: "https://baixarvideoyoutube.com/" },
+          { name: "DMCA", url: "https://baixarvideoyoutube.com/dmca" },
+        ]}
+      />
       <AppSidebar />
       <div className="flex-1 flex flex-col min-w-0">
         <AppHeader />

@@ -7,6 +7,7 @@ import {
 import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
 import AppFooter from "@/components/AppFooter";
+import SEOHead from "@/components/SEOHead";
 
 const fadeIn = {
   initial: { opacity: 0, y: 16 },
@@ -67,6 +68,14 @@ const tocItems = [
 export default function UsoResponsavel() {
   return (
     <div className="flex min-h-screen bg-background">
+      <SEOHead
+        title="Uso Responsável - Baixar Vídeo YouTube | Política de Download"
+        description="Termos de uso e política de download responsável. Saiba o que é permitido e proibido ao baixar vídeos do YouTube."
+        breadcrumbs={[
+          { name: "Início", url: "https://baixarvideoyoutube.com/" },
+          { name: "Uso Responsável", url: "https://baixarvideoyoutube.com/uso-responsavel" },
+        ]}
+      />
       <AppSidebar />
       <div className="flex-1 flex flex-col min-w-0">
         <AppHeader />

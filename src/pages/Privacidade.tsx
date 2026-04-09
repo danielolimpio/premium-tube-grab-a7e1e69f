@@ -6,6 +6,7 @@ import {
 import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
 import AppFooter from "@/components/AppFooter";
+import SEOHead from "@/components/SEOHead";
 
 const fadeIn = {
   initial: { opacity: 0, y: 16 },
@@ -31,6 +32,14 @@ function Section({ icon: Icon, title, children }: { icon: React.ElementType; tit
 export default function Privacidade() {
   return (
     <div className="flex min-h-screen bg-background">
+      <SEOHead
+        title="Política de Privacidade - Baixar Vídeo YouTube"
+        description="Saiba como coletamos, usamos e protegemos seus dados pessoais. Conforme LGPD. Transparência e segurança garantidas."
+        breadcrumbs={[
+          { name: "Início", url: "https://baixarvideoyoutube.com/" },
+          { name: "Privacidade", url: "https://baixarvideoyoutube.com/privacidade" },
+        ]}
+      />
       <AppSidebar />
       <div className="flex-1 flex flex-col min-w-0">
         <AppHeader />

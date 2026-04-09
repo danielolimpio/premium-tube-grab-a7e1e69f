@@ -6,10 +6,19 @@ import AppFooter from "@/components/AppFooter";
 import HeroSection from "@/components/HeroSection";
 import FeaturesGrid from "@/components/FeaturesGrid";
 import VideoResults from "@/components/VideoResults";
+import SEOHead from "@/components/SEOHead";
 import { type VideoResult } from "@/lib/youtube";
 import heroVideos from "@/assets/hero-videos.jpg";
 import heroDownload from "@/assets/hero-download.jpg";
 import ytIcon from "@/assets/yt-icon.png";
+
+const homeFaq = [
+  { question: "Como baixar vídeos do YouTube?", answer: "Cole o link do vídeo na barra de pesquisa, escolha a qualidade desejada e clique em Baixar. O download começa automaticamente." },
+  { question: "É gratuito baixar vídeos?", answer: "Sim, nossa plataforma é 100% gratuita e oferece downloads ilimitados em todas as qualidades, incluindo 4K e 8K." },
+  { question: "Funciona no celular?", answer: "Sim, a plataforma é totalmente responsiva e funciona em qualquer dispositivo com navegador web moderno, incluindo Android e iPhone." },
+  { question: "Posso baixar áudio MP3?", answer: "Sim, você pode extrair o áudio de qualquer vídeo do YouTube e salvar como MP3 com qualidade até 320kbps." },
+  { question: "É seguro usar o site?", answer: "Sim, utilizamos conexões criptografadas SSL/TLS, não armazenamos dados pessoais e não exigimos cadastro." },
+];
 
 const Index = () => {
   const [videoResult, setVideoResult] = useState<VideoResult | null>(null);
@@ -17,6 +26,12 @@ const Index = () => {
 
   return (
     <div className="flex min-h-screen bg-background">
+      <SEOHead
+        title="Baixar Vídeo YouTube - Download 4K/8K Grátis | MP4, MP3"
+        description="Baixe vídeos do YouTube em 4K, 8K, MP3 e muito mais. Plataforma premium, rápida e segura para download de vídeos, Shorts e áudio. 100% grátis."
+        breadcrumbs={[{ name: "Início", url: "https://baixarvideoyoutube.com/" }]}
+        faqItems={homeFaq}
+      />
       <AppSidebar />
       <div className="flex-1 flex flex-col min-w-0">
         <AppHeader />
