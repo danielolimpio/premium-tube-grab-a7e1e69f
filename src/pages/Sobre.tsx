@@ -6,6 +6,7 @@ import {
 import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
 import AppFooter from "@/components/AppFooter";
+import SEOHead from "@/components/SEOHead";
 import logo from "@/assets/logo.png";
 
 const fadeIn = {
@@ -55,6 +56,14 @@ const values = [
 export default function Sobre() {
   return (
     <div className="flex min-h-screen bg-background">
+      <SEOHead
+        title="Sobre - Baixar Vídeo YouTube | Plataforma Gratuita"
+        description="Conheça a plataforma mais avançada para download de vídeos do YouTube. Nossa missão, valores e tecnologia."
+        breadcrumbs={[
+          { name: "Início", url: "https://baixarvideoyoutube.com/" },
+          { name: "Sobre", url: "https://baixarvideoyoutube.com/sobre" },
+        ]}
+      />
       <AppSidebar />
       <div className="flex-1 flex flex-col min-w-0">
         <AppHeader />

@@ -7,6 +7,7 @@ import {
 import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
 import AppFooter from "@/components/AppFooter";
+import SEOHead from "@/components/SEOHead";
 import { toast } from "@/hooks/use-toast";
 
 const fadeIn = {
@@ -67,6 +68,15 @@ export default function Contato() {
 
   return (
     <div className="flex min-h-screen bg-background">
+      <SEOHead
+        title="Contato - Baixar Vídeo YouTube"
+        description="Entre em contato conosco. Suporte técnico, dúvidas, DMCA e privacidade. Resposta em até 48 horas úteis."
+        breadcrumbs={[
+          { name: "Início", url: "https://baixarvideoyoutube.com/" },
+          { name: "Contato", url: "https://baixarvideoyoutube.com/contato" },
+        ]}
+        faqItems={faqItems.map(f => ({ question: f.q, answer: f.a }))}
+      />
       <AppSidebar />
       <div className="flex-1 flex flex-col min-w-0">
         <AppHeader />

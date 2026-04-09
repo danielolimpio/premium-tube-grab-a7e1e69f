@@ -6,6 +6,7 @@ import {
 import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
 import AppFooter from "@/components/AppFooter";
+import SEOHead from "@/components/SEOHead";
 
 const fadeIn = {
   initial: { opacity: 0, y: 16 },
@@ -31,6 +32,14 @@ function Section({ icon: Icon, title, children, accent = false }: { icon: React.
 export default function Termos() {
   return (
     <div className="flex min-h-screen bg-background">
+      <SEOHead
+        title="Termos de Uso - Baixar Vídeo YouTube"
+        description="Leia os termos de uso da plataforma Baixar Vídeo YouTube. Uso permitido, proibições e responsabilidades do usuário."
+        breadcrumbs={[
+          { name: "Início", url: "https://baixarvideoyoutube.com/" },
+          { name: "Termos de Uso", url: "https://baixarvideoyoutube.com/termos" },
+        ]}
+      />
       <AppSidebar />
       <div className="flex-1 flex flex-col min-w-0">
         <AppHeader />
