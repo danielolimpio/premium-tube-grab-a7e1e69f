@@ -5,6 +5,7 @@ import Disclaimer from "@/components/Disclaimer";
 import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
 import AppFooter from "@/components/AppFooter";
+import SEOHead from "@/components/SEOHead";
 import { fetchVideoInfo, type VideoResult } from "@/lib/youtube";
 import VideoResults from "@/components/VideoResults";
 import { toast } from "@/hooks/use-toast";
@@ -45,6 +46,14 @@ export default function Canais() {
 
   return (
     <div className="flex min-h-screen bg-background">
+      <SEOHead
+        title="Baixar Vídeos de Canais YouTube - Download Grátis"
+        description="Explore e baixe vídeos de qualquer canal do YouTube. Acesse os vídeos mais recentes e populares dos seus criadores favoritos."
+        breadcrumbs={[
+          { name: "Início", url: "https://baixarvideoyoutube.com/" },
+          { name: "Canais", url: "https://baixarvideoyoutube.com/canais" },
+        ]}
+      />
       <AppSidebar />
       <div className="flex-1 flex flex-col min-w-0">
         <AppHeader />

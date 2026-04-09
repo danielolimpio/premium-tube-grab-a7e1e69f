@@ -5,6 +5,7 @@ import Disclaimer from "@/components/Disclaimer";
 import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
 import AppFooter from "@/components/AppFooter";
+import SEOHead from "@/components/SEOHead";
 import { fetchVideoInfo, type VideoResult } from "@/lib/youtube";
 import VideoResults from "@/components/VideoResults";
 import { toast } from "@/hooks/use-toast";
@@ -45,6 +46,14 @@ export default function Videos() {
 
   return (
     <div className="flex min-h-screen bg-background">
+      <SEOHead
+        title="Baixar Vídeos MP4 do YouTube - Download 4K/8K Grátis"
+        description="Baixe vídeos do YouTube em MP4 com qualidade até 4K e 8K. Download rápido, seguro e 100% gratuito. Sem cadastro necessário."
+        breadcrumbs={[
+          { name: "Início", url: "https://baixarvideoyoutube.com/" },
+          { name: "Vídeos", url: "https://baixarvideoyoutube.com/videos" },
+        ]}
+      />
       <AppSidebar />
       <div className="flex-1 flex flex-col min-w-0">
         <AppHeader />

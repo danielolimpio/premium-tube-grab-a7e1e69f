@@ -5,6 +5,7 @@ import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
 import AppFooter from "@/components/AppFooter";
 import Disclaimer from "@/components/Disclaimer";
+import SEOHead from "@/components/SEOHead";
 
 export interface DownloadHistoryItem {
   id: string;
@@ -70,6 +71,15 @@ export default function Downloads() {
 
   return (
     <div className="flex min-h-screen bg-background">
+      <SEOHead
+        title="Histórico de Downloads - Baixar Vídeo YouTube"
+        description="Veja o histórico dos vídeos e áudios que você baixou. Dados armazenados localmente no seu navegador."
+        noindex
+        breadcrumbs={[
+          { name: "Início", url: "https://baixarvideoyoutube.com/" },
+          { name: "Downloads", url: "https://baixarvideoyoutube.com/downloads" },
+        ]}
+      />
       <AppSidebar />
       <div className="flex-1 flex flex-col min-w-0">
         <AppHeader />

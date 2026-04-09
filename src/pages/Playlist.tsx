@@ -5,6 +5,7 @@ import Disclaimer from "@/components/Disclaimer";
 import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
 import AppFooter from "@/components/AppFooter";
+import SEOHead from "@/components/SEOHead";
 import { fetchVideoInfo, type VideoResult } from "@/lib/youtube";
 import VideoResults from "@/components/VideoResults";
 import { toast } from "@/hooks/use-toast";
@@ -46,6 +47,14 @@ export default function Playlist() {
 
   return (
     <div className="flex min-h-screen bg-background">
+      <SEOHead
+        title="Baixar Playlist YouTube - Download Completo Grátis"
+        description="Baixe playlists inteiras do YouTube de uma vez. Selecione qualidade e formato para todos os vídeos. 100% gratuito."
+        breadcrumbs={[
+          { name: "Início", url: "https://baixarvideoyoutube.com/" },
+          { name: "Playlist", url: "https://baixarvideoyoutube.com/playlist" },
+        ]}
+      />
       <AppSidebar />
       <div className="flex-1 flex flex-col min-w-0">
         <AppHeader />
