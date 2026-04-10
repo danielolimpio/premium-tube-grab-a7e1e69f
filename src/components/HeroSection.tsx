@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, Clipboard, Music, Smartphone, FolderOpen, Play, Loader2 } from "lucide-react";
+import { Download, Clipboard, X, Music, Smartphone, FolderOpen, Play, Loader2 } from "lucide-react";
 import { fetchVideoInfo, type VideoResult } from "@/lib/youtube";
 import { toast } from "@/hooks/use-toast";
 import Disclaimer from "@/components/Disclaimer";
