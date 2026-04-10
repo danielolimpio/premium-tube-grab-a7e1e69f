@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, Clipboard, Music, Smartphone, FolderOpen, Play, Loader2 } from "lucide-react";
+import { Download, Clipboard, X, Music, Smartphone, FolderOpen, Play, Loader2 } from "lucide-react";
 import { fetchVideoInfo, type VideoResult } from "@/lib/youtube";
 import { toast } from "@/hooks/use-toast";
 import Disclaimer from "@/components/Disclaimer";
@@ -109,14 +109,25 @@ export default function HeroSection({ onResult, isLoading, setIsLoading }: HeroS
               className="flex-1 bg-transparent border-none outline-none text-foreground text-base placeholder:text-muted-foreground placeholder:italic px-2"
               disabled={isLoading}
             />
-            <button
-              onClick={handlePaste}
-              disabled={isLoading}
-              className="flex items-center gap-1.5 mr-3 px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-semibold hover:bg-primary/20 hover:scale-105 transition-premium flex-shrink-0 disabled:opacity-50"
-            >
-              <Clipboard className="w-4 h-4" />
-              <span className="hidden sm:inline">Colar</span>
-            </button>
+            {url.trim() ? (
+              <button
+                onClick={() => setUrl("")}
+                disabled={isLoading}
+                className="flex items-center gap-1.5 mr-3 px-4 py-2 rounded-lg bg-destructive/10 text-destructive text-sm font-semibold hover:bg-destructive/20 hover:scale-105 transition-premium flex-shrink-0 disabled:opacity-50"
+              >
+                <X className="w-4 h-4" />
+                <span className="hidden sm:inline">Limpar</span>
+              </button>
+            ) : (
+              <button
+                onClick={handlePaste}
+                disabled={isLoading}
+                className="flex items-center gap-1.5 mr-3 px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-semibold hover:bg-primary/20 hover:scale-105 transition-premium flex-shrink-0 disabled:opacity-50"
+              >
+                <Clipboard className="w-4 h-4" />
+                <span className="hidden sm:inline">Colar</span>
+              </button>
+            )}
           </div>
         </motion.div>
 
