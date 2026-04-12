@@ -102,6 +102,45 @@ const Index = () => {
             </>
           )}
 
+          {/* FAQ Preview */}
+          {!videoResult && (
+            <section className="py-12 px-4">
+              <div className="max-w-3xl mx-auto">
+                <div className="text-center mb-8">
+                  <h2 className="text-2xl font-bold text-foreground mb-2">Perguntas Frequentes</h2>
+                  <p className="text-muted-foreground text-sm">Dúvidas mais comuns sobre download de vídeos do YouTube</p>
+                </div>
+                <div className="space-y-2">
+                  {homeFaq.map((item, i) => (
+                    <div key={i} className="glass-card rounded-xl overflow-hidden">
+                      <button
+                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                        className="w-full flex items-center justify-between px-5 py-4 text-left transition-premium hover:bg-secondary/50"
+                      >
+                        <span className="text-sm font-medium text-foreground pr-4">{item.question}</span>
+                        {openFaq === i ? <ChevronUp className="w-4 h-4 text-primary flex-shrink-0" /> : <ChevronDown className="w-4 h-4 text-muted-foreground flex-shrink-0" />}
+                      </button>
+                      {openFaq === i && (
+                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="px-5 pb-4">
+                          <p className="text-sm text-muted-foreground leading-relaxed">{item.answer}</p>
+                        </motion.div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+                <div className="text-center mt-6">
+                  <button
+                    onClick={() => navigate("/faq")}
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl gradient-red text-primary-foreground font-medium text-sm shadow-button hover:shadow-button-hover transition-premium"
+                  >
+                    Ver todas as perguntas
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            </section>
+          )}
+
           <AppFooter />
         </main>
       </div>
