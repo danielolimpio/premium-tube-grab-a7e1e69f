@@ -25,6 +25,8 @@ const homeFaq = [
 const Index = () => {
   const [videoResult, setVideoResult] = useState<VideoResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   return (
     <div className="flex min-h-screen bg-background">
