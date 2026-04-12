@@ -1,8 +1,12 @@
-import { Search, Bell, Globe, Menu } from "lucide-react";
+import { Search, Bell, Globe, Menu, Sun, Moon, HelpCircle } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useTheme } from "@/components/ThemeProvider";
 
 export default function AppHeader({ onMenuToggle }: { onMenuToggle?: () => void }) {
   const [searchFocused, setSearchFocused] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const navigate = useNavigate();
 
   return (
     <header className="sticky top-0 z-40 h-16 flex items-center px-4 md:px-6 border-b border-border/30 bg-background/80 backdrop-blur-xl">
@@ -28,16 +32,23 @@ export default function AppHeader({ onMenuToggle }: { onMenuToggle?: () => void 
 
       {/* Actions */}
       <div className="flex items-center gap-2 ml-4">
+        <button
+          onClick={() => navigate("/faq")}
+          className="p-2 rounded-lg hover:bg-secondary transition-premium text-muted-foreground hover:text-foreground"
+          title="FAQ"
+        >
+          <HelpCircle className="w-5 h-5" />
+        </button>
         <button className="p-2 rounded-lg hover:bg-secondary transition-premium text-muted-foreground hover:text-foreground">
           <Globe className="w-5 h-5" />
         </button>
-        <button className="relative p-2 rounded-lg hover:bg-secondary transition-premium text-muted-foreground hover:text-foreground">
-          <Bell className="w-5 h-5" />
-          <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary" />
+        <button
+          onClick={toggleTheme}
+          className="p-2 rounded-lg hover:bg-secondary transition-premium text-muted-foreground hover:text-foreground"
+          title={theme === "dark" ? "Modo Claro" : "Modo Escuro"}
+        >
+          {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
         </button>
-        <div className="w-8 h-8 rounded-full gradient-red flex items-center justify-center text-xs font-bold text-primary-foreground ml-1">
-          P
-        </div>
       </div>
     </header>
   );

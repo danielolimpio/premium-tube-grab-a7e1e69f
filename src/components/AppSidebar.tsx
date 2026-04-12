@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import {
   Home, Video, Smartphone, Music, FolderOpen, Users,
   Download, Settings, Play, ChevronLeft, ChevronRight,
-  Sparkles, History
+  Sparkles, History, HelpCircle
 } from "lucide-react";
 import logo from "@/assets/logo.png";
 
@@ -16,6 +16,7 @@ const menuItems = [
   { icon: FolderOpen, label: "Playlists", path: "/playlist" },
   { icon: Users, label: "Canais", path: "/canais" },
   { icon: History, label: "Downloads", path: "/downloads" },
+  { icon: HelpCircle, label: "FAQ", path: "/faq" },
 ];
 
 export default function AppSidebar() {
@@ -27,7 +28,7 @@ export default function AppSidebar() {
     <motion.aside
       animate={{ width: collapsed ? 72 : 280 }}
       transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-      className="hidden lg:flex flex-col h-screen sticky top-0 bg-[hsl(0,0%,4%)] border-r border-border/50 overflow-hidden z-50"
+      className="hidden lg:flex flex-col h-screen sticky top-0 bg-sidebar-background border-r border-border/50 overflow-hidden z-50"
     >
       {/* Logo */}
       <div className="flex items-center gap-3 px-5 py-5 border-b border-border/30">

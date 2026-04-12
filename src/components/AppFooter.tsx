@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Play, Shield, FileText, Cookie, Scale, Mail, Info, BookOpen } from "lucide-react";
+import { Play, Shield, FileText, Cookie, Scale, Mail, Info, BookOpen, HelpCircle } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const legalLinks = [
@@ -13,6 +13,7 @@ const siteLinks = [
   { label: "Sobre", path: "/sobre", icon: Info },
   { label: "Contato", path: "/contato", icon: Mail },
   { label: "Uso Responsável", path: "/uso-responsavel", icon: BookOpen },
+  { label: "FAQ", path: "/faq", icon: HelpCircle },
 ];
 
 const toolLinks = [
