@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { ChevronDown, ChevronUp, HelpCircle, ArrowRight } from "lucide-react";
 import AppSidebar from "@/components/AppSidebar";
 import AppHeader from "@/components/AppHeader";
 import AppFooter from "@/components/AppFooter";
@@ -13,16 +15,18 @@ import heroDownload from "@/assets/hero-download.jpg";
 import ytIcon from "@/assets/yt-icon.png";
 
 const homeFaq = [
-  { question: "Como baixar vídeos do YouTube?", answer: "Cole o link do vídeo na barra de pesquisa, escolha a qualidade desejada e clique em Baixar. O download começa automaticamente." },
-  { question: "É gratuito baixar vídeos?", answer: "Sim, nossa plataforma é 100% gratuita e oferece downloads ilimitados em todas as qualidades, incluindo 4K e 8K." },
-  { question: "Funciona no celular?", answer: "Sim, a plataforma é totalmente responsiva e funciona em qualquer dispositivo com navegador web moderno, incluindo Android e iPhone." },
-  { question: "Posso baixar áudio MP3?", answer: "Sim, você pode extrair o áudio de qualquer vídeo do YouTube e salvar como MP3 com qualidade até 320kbps." },
-  { question: "É seguro usar o site?", answer: "Sim, utilizamos conexões criptografadas SSL/TLS, não armazenamos dados pessoais e não exigimos cadastro." },
+  { question: "Como baixar vídeos do YouTube grátis?", answer: "Basta copiar o link do vídeo do YouTube, colar na barra de pesquisa do nosso site e clicar em 'Baixar Vídeo'. Em segundos, você verá as opções de qualidade disponíveis para download. Todo o processo é 100% gratuito e sem necessidade de cadastro." },
+  { question: "Como converter vídeo do YouTube para MP3?", answer: "Cole o link do vídeo do YouTube no nosso site e clique em 'Baixar'. Na lista de formatos, selecione a opção 'MP3' com a qualidade desejada (128kbps, 192kbps ou 320kbps). O áudio será extraído automaticamente do vídeo." },
+  { question: "Funciona no celular Android e iPhone?", answer: "Sim! Nossa plataforma é totalmente responsiva e funciona perfeitamente em qualquer navegador em Android e iOS. Não é necessário instalar nenhum aplicativo." },
+  { question: "O site é seguro para usar?", answer: "Sim, absolutamente seguro. Utilizamos conexão criptografada SSL/TLS (HTTPS), não armazenamos dados pessoais e não exigimos cadastro." },
+  { question: "Posso baixar vídeos em 4K e 8K?", answer: "Sim! Se o vídeo original estiver disponível em 4K (2160p) ou 8K (4320p), essas opções aparecerão na lista de formatos para download." },
 ];
 
 const Index = () => {
   const [videoResult, setVideoResult] = useState<VideoResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   return (
     <div className="flex min-h-screen bg-background">
@@ -96,6 +100,45 @@ const Index = () => {
                 </div>
               </section>
             </>
+          )}
+
+          {/* FAQ Preview */}
+          {!videoResult && (
+            <section className="py-12 px-4">
+              <div className="max-w-3xl mx-auto">
+                <div className="text-center mb-8">
+                  <h2 className="text-2xl font-bold text-foreground mb-2">Perguntas Frequentes</h2>
+                  <p className="text-muted-foreground text-sm">Dúvidas mais comuns sobre download de vídeos do YouTube</p>
+                </div>
+                <div className="space-y-2">
+                  {homeFaq.map((item, i) => (
+                    <div key={i} className="glass-card rounded-xl overflow-hidden">
+                      <button
+                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                        className="w-full flex items-center justify-between px-5 py-4 text-left transition-premium hover:bg-secondary/50"
+                      >
+                        <span className="text-sm font-medium text-foreground pr-4">{item.question}</span>
+                        {openFaq === i ? <ChevronUp className="w-4 h-4 text-primary flex-shrink-0" /> : <ChevronDown className="w-4 h-4 text-muted-foreground flex-shrink-0" />}
+                      </button>
+                      {openFaq === i && (
+                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="px-5 pb-4">
+                          <p className="text-sm text-muted-foreground leading-relaxed">{item.answer}</p>
+                        </motion.div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+                <div className="text-center mt-6">
+                  <button
+                    onClick={() => navigate("/faq")}
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl gradient-red text-primary-foreground font-medium text-sm shadow-button hover:shadow-button-hover transition-premium"
+                  >
+                    Ver todas as perguntas
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            </section>
           )}
 
           <AppFooter />
