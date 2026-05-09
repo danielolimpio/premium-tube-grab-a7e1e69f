@@ -273,10 +273,15 @@ function filterFormats(rawVideos: RawVideoFormat[], rawAudios: RawAudioFormat[])
       return q === res && v.codec.includes('avc1');
     });
     if (candidates.length > 0) {
-      candidates.sort((a, b) => b.bitrate - a.bitrate || b.size - a.size);
+      // Prefer formats WITH audio (progressive) over adaptive video-only
+      candidates.sort((a, b) => {
+        if (a.hasAudio !== b.hasAudio) return a.hasAudio ? -1 : 1;
+        return b.bitrate - a.bitrate || b.size - a.size;
+      });
       const best = candidates[0];
+      const audioLabel = best.hasAudio ? '' : ' (sem áudio)';
       videos.push({
-        quality: `${res} - MP4 (H.264)`,
+        quality: `${res} - MP4 (H.264)${audioLabel}`,
         url: best.url,
         mimeType: 'video/mp4',
         size: best.size > 0 ? formatBytes(best.size) : 'Tamanho variável',
