@@ -119,8 +119,10 @@ export default function VideoResults({ result }: VideoResultsProps) {
                       </span>
                       <span className="text-xs text-muted-foreground">{format.mimeType}</span>
                       <span className="text-xs text-muted-foreground">{format.size}</span>
-                      {format.hasAudio && (
+                      {format.hasAudio ? (
                         <span className="text-[10px] px-1.5 py-0.5 rounded bg-green-500/20 text-green-400 font-medium">+áudio</span>
+                      ) : (
+                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-500 font-medium" title="Vídeo sem áudio (formato adaptativo). Para áudio embutido, escolha 720p ou inferior.">sem áudio</span>
                       )}
                     </div>
                     <motion.button
