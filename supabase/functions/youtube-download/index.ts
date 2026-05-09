@@ -304,17 +304,21 @@ function filterFormats(rawVideos: RawVideoFormat[], rawAudios: RawAudioFormat[])
     });
   }
 
-  // Fallback: any codec per resolution
+  // Fallback: any codec per resolution (prefer with audio)
   if (videos.length === 0) {
     for (const res of targetResolutions) {
       const candidates = rawVideos.filter(v => normalizeQuality(v.quality, v.height) === res);
       if (candidates.length > 0) {
-        candidates.sort((a, b) => b.bitrate - a.bitrate || b.size - a.size);
+        candidates.sort((a, b) => {
+          if (a.hasAudio !== b.hasAudio) return a.hasAudio ? -1 : 1;
+          return b.bitrate - a.bitrate || b.size - a.size;
+        });
         const best = candidates[0];
         const codecLabel = best.codec.includes('vp9') ? 'VP9' : best.codec.includes('av01') ? 'AV1' : best.codec.includes('avc1') ? 'H.264' : best.codec.split('.')[0] || 'MP4';
         const ext = best.mimeType.includes('webm') ? 'WebM' : 'MP4';
+        const audioLabel = best.hasAudio ? '' : ' (sem áudio)';
         videos.push({
-          quality: `${res} - ${ext} (${codecLabel})`,
+          quality: `${res} - ${ext} (${codecLabel})${audioLabel}`,
           url: best.url,
           mimeType: best.mimeType,
           size: best.size > 0 ? formatBytes(best.size) : 'Tamanho variável',
@@ -324,14 +328,18 @@ function filterFormats(rawVideos: RawVideoFormat[], rawAudios: RawAudioFormat[])
     }
   }
 
-  // If still no videos, take whatever raw formats we have (up to 5)
+  // If still no videos, take whatever raw formats we have (up to 5, prefer with audio)
   if (videos.length === 0 && rawVideos.length > 0) {
-    rawVideos.sort((a, b) => b.height - a.height || b.bitrate - a.bitrate);
+    rawVideos.sort((a, b) => {
+      if (a.hasAudio !== b.hasAudio) return a.hasAudio ? -1 : 1;
+      return b.height - a.height || b.bitrate - a.bitrate;
+    });
     for (let i = 0; i < Math.min(5, rawVideos.length); i++) {
       const v = rawVideos[i];
       const q = v.quality || (v.height ? `${v.height}p` : 'Vídeo');
+      const audioLabel = v.hasAudio ? '' : ' (sem áudio)';
       videos.push({
-        quality: q,
+        quality: `${q}${audioLabel}`,
         url: v.url,
         mimeType: v.mimeType,
         size: v.size > 0 ? formatBytes(v.size) : 'Tamanho variável',
@@ -339,7 +347,6 @@ function filterFormats(rawVideos: RawVideoFormat[], rawAudios: RawAudioFormat[])
       });
     }
   }
-
   // Audio
   const audios: any[] = [];
   const m4a = rawAudios.filter(a => a.mimeType.includes('mp4') || a.mimeType.includes('m4a') || a.codec.includes('mp4a'));
