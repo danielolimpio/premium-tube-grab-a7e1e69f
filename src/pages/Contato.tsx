@@ -131,8 +131,9 @@ export default function Contato() {
                   </div>
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                      <label className="text-xs font-medium text-foreground mb-1 block">Nome completo</label>
+                      <label htmlFor="contato-nome" className="text-xs font-medium text-foreground mb-1 block">Nome completo</label>
                       <input
+                        id="contato-nome"
                         type="text"
                         value={form.nome}
                         onChange={(e) => setForm({ ...form, nome: e.target.value })}
@@ -142,8 +143,9 @@ export default function Contato() {
                       />
                     </div>
                     <div>
-                      <label className="text-xs font-medium text-foreground mb-1 block">E-mail</label>
+                      <label htmlFor="contato-email" className="text-xs font-medium text-foreground mb-1 block">E-mail</label>
                       <input
+                        id="contato-email"
                         type="email"
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -153,8 +155,9 @@ export default function Contato() {
                       />
                     </div>
                     <div>
-                      <label className="text-xs font-medium text-foreground mb-1 block">Assunto</label>
+                      <label htmlFor="contato-assunto" className="text-xs font-medium text-foreground mb-1 block">Assunto</label>
                       <select
+                        id="contato-assunto"
                         value={form.assunto}
                         onChange={(e) => setForm({ ...form, assunto: e.target.value })}
                         required
@@ -170,8 +173,9 @@ export default function Contato() {
                       </select>
                     </div>
                     <div>
-                      <label className="text-xs font-medium text-foreground mb-1 block">Mensagem</label>
+                      <label htmlFor="contato-mensagem" className="text-xs font-medium text-foreground mb-1 block">Mensagem</label>
                       <textarea
+                        id="contato-mensagem"
                         value={form.mensagem}
                         onChange={(e) => setForm({ ...form, mensagem: e.target.value })}
                         required
