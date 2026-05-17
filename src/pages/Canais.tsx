@@ -121,12 +121,15 @@ export default function Canais() {
                   <div className="pl-5 pr-2">
                     <Tv2 className="w-5 h-5 text-primary" />
                   </div>
+                  <label htmlFor="canais-url" className="sr-only">Link do canal do YouTube</label>
                   <input
+                    id="canais-url"
                     type="url"
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && handleDownload()}
                     placeholder="Cole o link do canal do YouTube..."
+                    aria-label="Link do canal do YouTube"
                     className="flex-1 bg-transparent border-none outline-none text-foreground text-base placeholder:text-muted-foreground px-2"
                     disabled={isLoading}
                   />

@@ -106,12 +106,15 @@ export default function Downloads() {
               {/* Controls */}
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="flex flex-col sm:flex-row gap-3 mb-8">
                 <div className="relative flex-1">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                  <label htmlFor="downloads-search" className="sr-only">Buscar no histórico de downloads</label>
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" aria-hidden="true" />
                   <input
+                    id="downloads-search"
                     type="text"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Buscar no histórico..."
+                    aria-label="Buscar no histórico de downloads"
                     className="w-full pl-10 pr-4 py-3 rounded-xl border border-border/50 bg-card text-foreground placeholder:text-muted-foreground outline-none focus:border-primary transition-premium"
                   />
                 </div>
@@ -130,7 +133,11 @@ export default function Downloads() {
                     </button>
                   ))}
                   {history.length > 0 && (
-                    <button onClick={clearHistory} className="px-4 py-3 rounded-xl text-sm font-medium border border-destructive/30 text-destructive hover:bg-destructive/10 transition-premium">
+                    <button
+                      onClick={clearHistory}
+                      aria-label="Limpar todo o histórico de downloads"
+                      className="px-4 py-3 rounded-xl text-sm font-medium border border-destructive/30 text-destructive hover:bg-destructive/10 transition-premium"
+                    >
                       <Trash2 className="w-4 h-4" />
                     </button>
                   )}
@@ -196,12 +203,14 @@ export default function Downloads() {
                             href={`https://youtube.com/watch?v=${item.videoId}`}
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label={`Abrir "${item.title}" no YouTube`}
                             className="w-8 h-8 rounded-lg flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary transition-premium"
                           >
                             <ExternalLink className="w-4 h-4" />
                           </a>
                           <button
                             onClick={() => removeItem(item.id)}
+                            aria-label={`Remover "${item.title}" do histórico`}
                             className="w-8 h-8 rounded-lg flex items-center justify-center text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-premium"
                           >
                             <X className="w-4 h-4" />

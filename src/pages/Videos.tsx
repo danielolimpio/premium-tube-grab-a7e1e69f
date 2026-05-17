@@ -117,12 +117,15 @@ export default function Videos() {
                   <div className="pl-5 pr-2">
                     <Play className="w-5 h-5 text-primary fill-primary" />
                   </div>
+                  <label htmlFor="videos-url" className="sr-only">Link do vídeo do YouTube</label>
                   <input
+                    id="videos-url"
                     type="url"
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && handleDownload()}
                     placeholder="Cole o link do vídeo do YouTube..."
+                    aria-label="Link do vídeo do YouTube"
                     className="flex-1 bg-transparent border-none outline-none text-foreground text-base placeholder:text-muted-foreground px-2"
                     disabled={isLoading}
                   />
