@@ -98,7 +98,9 @@ export default function HeroSection({ onResult, isLoading, setIsLoading }: HeroS
             <div className="pl-5 pr-2 flex-shrink-0">
               <Play className="w-5 h-5 text-primary fill-primary animate-bounce-subtle" />
             </div>
+            <label htmlFor="hero-url" className="sr-only">Link do vídeo do YouTube</label>
             <input
+              id="hero-url"
               type="url"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
@@ -106,6 +108,7 @@ export default function HeroSection({ onResult, isLoading, setIsLoading }: HeroS
               onBlur={() => setInputFocused(false)}
               onKeyDown={(e) => e.key === 'Enter' && handleDownload()}
               placeholder="Cole o link do YouTube aqui..."
+              aria-label="Link do vídeo do YouTube"
               className="flex-1 bg-transparent border-none outline-none text-foreground text-base placeholder:text-muted-foreground placeholder:italic px-2"
               disabled={isLoading}
             />
@@ -113,6 +116,7 @@ export default function HeroSection({ onResult, isLoading, setIsLoading }: HeroS
               <button
                 onClick={() => setUrl("")}
                 disabled={isLoading}
+                aria-label="Limpar link"
                 className="flex items-center gap-1.5 mr-3 px-4 py-2 rounded-lg bg-destructive/10 text-destructive text-sm font-semibold hover:bg-destructive/20 hover:scale-105 transition-premium flex-shrink-0 disabled:opacity-50"
               >
                 <X className="w-4 h-4" />
@@ -122,6 +126,7 @@ export default function HeroSection({ onResult, isLoading, setIsLoading }: HeroS
               <button
                 onClick={handlePaste}
                 disabled={isLoading}
+                aria-label="Colar link da área de transferência"
                 className="flex items-center gap-1.5 mr-3 px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-semibold hover:bg-primary/20 hover:scale-105 transition-premium flex-shrink-0 disabled:opacity-50"
               >
                 <Clipboard className="w-4 h-4" />

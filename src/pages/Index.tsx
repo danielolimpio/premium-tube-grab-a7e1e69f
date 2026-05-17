@@ -87,7 +87,7 @@ const Index = () => {
               {/* Supported formats */}
               <section className="py-12 px-4">
                 <div className="max-w-3xl mx-auto text-center">
-                  <img src={ytIcon} alt="YouTube" className="w-20 h-20 mx-auto mb-4 drop-shadow-2xl" />
+                  <img src={ytIcon} alt="Logotipo da plataforma YouTube" className="w-20 h-20 mx-auto mb-4 drop-shadow-2xl" />
                   <h2 className="text-2xl font-bold text-foreground mb-2">Todos os formatos suportados</h2>
                   <p className="text-muted-foreground text-sm mb-6">MP4, WebM, MP3, M4A — Vídeos, Shorts, Playlists e Canais</p>
                   <div className="flex flex-wrap justify-center gap-3">

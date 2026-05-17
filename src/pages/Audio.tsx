@@ -126,12 +126,15 @@ export default function Audio() {
                   <div className="pl-5 pr-2">
                     <Music className="w-5 h-5 text-primary" />
                   </div>
+                  <label htmlFor="audio-url" className="sr-only">Link do vídeo do YouTube para extrair áudio</label>
                   <input
+                    id="audio-url"
                     type="url"
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && handleDownload()}
                     placeholder="Cole o link para extrair o áudio..."
+                    aria-label="Link do vídeo do YouTube para extrair áudio"
                     className="flex-1 bg-transparent border-none outline-none text-foreground text-base placeholder:text-muted-foreground px-2"
                     disabled={isLoading}
                   />

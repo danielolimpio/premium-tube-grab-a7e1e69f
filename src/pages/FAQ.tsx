@@ -147,10 +147,13 @@ export default function FAQ() {
               {/* Search */}
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="max-w-lg mx-auto">
                 <div className="flex items-center h-12 rounded-xl border border-border bg-secondary/50 focus-within:border-primary focus-within:glow-red transition-premium">
-                  <Search className="w-5 h-5 ml-4 text-muted-foreground flex-shrink-0" />
+                  <label htmlFor="faq-search" className="sr-only">Buscar pergunta na central de ajuda</label>
+                  <Search className="w-5 h-5 ml-4 text-muted-foreground flex-shrink-0" aria-hidden="true" />
                   <input
+                    id="faq-search"
                     type="text"
                     placeholder="Buscar pergunta..."
+                    aria-label="Buscar pergunta na central de ajuda"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="flex-1 bg-transparent border-none outline-none px-3 text-foreground placeholder:text-muted-foreground"

@@ -123,12 +123,15 @@ export default function Shorts() {
                   <div className="pl-5 pr-2">
                     <Smartphone className="w-5 h-5 text-primary" />
                   </div>
+                  <label htmlFor="shorts-url" className="sr-only">Link do Short do YouTube</label>
                   <input
+                    id="shorts-url"
                     type="url"
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && handleDownload()}
                     placeholder="Cole o link do Short do YouTube..."
+                    aria-label="Link do Short do YouTube"
                     className="flex-1 bg-transparent border-none outline-none text-foreground text-base placeholder:text-muted-foreground px-2"
                     disabled={isLoading}
                   />

@@ -40,12 +40,14 @@ export default function AppSidebar() {
         </div>
         {!collapsed && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="overflow-hidden cursor-pointer" onClick={() => navigate("/")}>
-            <h1 className="text-lg font-bold text-foreground tracking-tight whitespace-nowrap">Baixar Vídeo</h1>
+            <span className="block text-lg font-bold text-foreground tracking-tight whitespace-nowrap">Baixar Vídeo</span>
             <p className="text-xs text-muted-foreground whitespace-nowrap">YouTube Download 4K/8K</p>
           </motion.div>
         )}
         <button
           onClick={() => setCollapsed(!collapsed)}
+          aria-label={collapsed ? "Expandir menu lateral" : "Recolher menu lateral"}
+          aria-expanded={!collapsed}
           className="ml-auto flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary transition-premium"
         >
           {collapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
