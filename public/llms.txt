@@ -1,0 +1,29 @@
+# Baixar Vídeo YouTube
+
+> Plataforma premium, rápida e gratuita para baixar vídeos do YouTube em alta qualidade (até 4K/8K), Shorts, playlists, canais e áudio (MP3/M4A). Sem cadastro, sem limites, 100% no navegador.
+
+## Páginas
+
+- [Início](/): Cole o link do YouTube e baixe vídeo ou áudio em segundos.
+- [Vídeos](/videos): Download de vídeos do YouTube em MP4 até 4K/8K.
+- [Shorts](/shorts): Baixar YouTube Shorts em alta qualidade.
+- [Áudio](/audio): Converter vídeos do YouTube para MP3/M4A (128/192/320 kbps).
+- [Playlists](/playlist): Baixar playlists inteiras do YouTube.
+- [Canais](/canais): Baixar vídeos de canais do YouTube.
+- [Downloads](/downloads): Histórico local de downloads recentes (armazenado no navegador).
+- [FAQ](/faq): Perguntas frequentes sobre downloads, formatos e qualidade.
+- [Sobre](/sobre): Sobre o projeto e missão.
+- [Contato](/contato): Fale conosco.
+- [Uso Responsável](/uso-responsavel): Diretrizes de uso ético e legal.
+- [DMCA](/dmca): Política de direitos autorais e remoção de conteúdo.
+- [Privacidade](/privacidade): Política de privacidade — não coletamos dados pessoais.
+- [Termos](/termos): Termos de uso do serviço.
+- [Cookies](/cookies): Política de cookies.
+
+## Recursos
+
+- Formatos suportados: MP4, WebM, MP3, M4A
+- Qualidades: 144p, 360p, 720p, 1080p, 1440p, 2160p (4K), 4320p (8K)
+- Sem necessidade de cadastro, login ou instalação
+- Compatível com Android, iOS, Windows, macOS e Linux
+- Idioma: Português (Brasil)
