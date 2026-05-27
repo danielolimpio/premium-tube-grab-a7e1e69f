@@ -7,6 +7,11 @@ import {
   Sparkles, History, HelpCircle
 } from "lucide-react";
 import logo from "@/assets/logo.png";
+import facebookLogo from "@/assets/partners/facebook.png";
+import instagramLogo from "@/assets/partners/instagram.png";
+import twitterLogo from "@/assets/partners/twitter.jpg";
+import tiktokLogo from "@/assets/partners/tiktok.webp";
+import kwaiLogo from "@/assets/partners/kwai.png";
 
 const menuItems = [
   { icon: Home, label: "Início", path: "/" },
@@ -17,6 +22,14 @@ const menuItems = [
   { icon: Users, label: "Canais", path: "/canais" },
   { icon: History, label: "Downloads", path: "/downloads" },
   { icon: HelpCircle, label: "FAQ", path: "/faq" },
+];
+
+const partnerItems = [
+  { logo: facebookLogo, label: "Baixar Facebook", url: "https://baixarvideosfacebook.com" },
+  { logo: instagramLogo, label: "Baixar Instagram", url: "https://baixarvideosinstagram.com" },
+  { logo: twitterLogo, label: "Baixar Twitter (X)", url: "https://baixarvideostwitter.com" },
+  { logo: tiktokLogo, label: "Baixar TikTok", url: "https://baixarvideostiktok.com" },
+  { logo: kwaiLogo, label: "Baixar Kwai", url: "https://baixarvideoskwai.com" },
 ];
 
 export default function AppSidebar() {
@@ -81,6 +94,31 @@ export default function AppSidebar() {
             </motion.button>
           );
         })}
+
+        {/* Partner downloaders */}
+        <div className="pt-4 mt-4 border-t border-border/30 space-y-1">
+          {!collapsed && (
+            <p className="px-3 pb-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+              Outros Baixadores
+            </p>
+          )}
+          {partnerItems.map((item) => (
+            <motion.a
+              key={item.label}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ x: collapsed ? 0 : 4 }}
+              className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-premium text-muted-foreground hover:text-foreground hover:bg-secondary/80"
+              title={item.label}
+            >
+              <img src={item.logo} alt={item.label} className="w-6 h-6 rounded-md object-cover flex-shrink-0" />
+              {!collapsed && (
+                <span className="text-sm font-medium whitespace-nowrap">{item.label}</span>
+              )}
+            </motion.a>
+          ))}
+        </div>
       </nav>
 
       {/* Bottom */}
