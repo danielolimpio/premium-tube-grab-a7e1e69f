@@ -94,6 +94,31 @@ export default function AppSidebar() {
             </motion.button>
           );
         })}
+
+        {/* Partner downloaders */}
+        <div className="pt-4 mt-4 border-t border-border/30 space-y-1">
+          {!collapsed && (
+            <p className="px-3 pb-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+              Outros Baixadores
+            </p>
+          )}
+          {partnerItems.map((item) => (
+            <motion.a
+              key={item.label}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ x: collapsed ? 0 : 4 }}
+              className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-premium text-muted-foreground hover:text-foreground hover:bg-secondary/80"
+              title={item.label}
+            >
+              <img src={item.logo} alt={item.label} className="w-6 h-6 rounded-md object-cover flex-shrink-0" />
+              {!collapsed && (
+                <span className="text-sm font-medium whitespace-nowrap">{item.label}</span>
+              )}
+            </motion.a>
+          ))}
+        </div>
       </nav>
 
       {/* Bottom */}
