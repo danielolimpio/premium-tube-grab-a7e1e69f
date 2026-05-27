@@ -1,6 +1,19 @@
 import { Link } from "react-router-dom";
 import { Play, Shield, FileText, Cookie, Scale, Mail, Info, BookOpen, HelpCircle } from "lucide-react";
 import logo from "@/assets/logo.png";
+import facebookLogo from "@/assets/partners/facebook.png";
+import instagramLogo from "@/assets/partners/instagram.png";
+import twitterLogo from "@/assets/partners/twitter.jpg";
+import tiktokLogo from "@/assets/partners/tiktok.webp";
+import kwaiLogo from "@/assets/partners/kwai.png";
+
+const partnerLinks = [
+  { logo: facebookLogo, label: "Baixar Facebook", url: "https://baixarvideosfacebook.com" },
+  { logo: instagramLogo, label: "Baixar Instagram", url: "https://baixarvideosinstagram.com" },
+  { logo: twitterLogo, label: "Baixar Twitter (X)", url: "https://baixarvideostwitter.com" },
+  { logo: tiktokLogo, label: "Baixar TikTok", url: "https://baixarvideostiktok.com" },
+  { logo: kwaiLogo, label: "Baixar Kwai", url: "https://baixarvideoskwai.com" },
+];
 
 const legalLinks = [
   { label: "Política de Privacidade", path: "/privacidade", icon: Shield },
