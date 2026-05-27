@@ -102,6 +102,29 @@ export default function AppFooter() {
           </div>
         </div>
 
+        {/* Partner downloaders */}
+        <div className="mt-10 pt-8 border-t border-border/20">
+          <h4 className="text-sm font-semibold text-foreground mb-4 text-center">Outros Baixadores</h4>
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            {partnerLinks.map((p) => (
+              <a
+                key={p.label}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-card/60 border border-border/40 hover:border-primary/50 hover:bg-card transition-premium shadow-sm"
+              >
+                <img src={p.logo} alt={p.label} className="w-7 h-7 rounded-lg object-cover" />
+                <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground whitespace-nowrap">
+                  {p.label}
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+
+
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-border/20 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[11px] text-muted-foreground">
